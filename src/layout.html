@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Fancy website</title>
+        <link rel="stylesheet" type="text/css"
+              href="/assets/awesome-style.min.css"/>
+    </head>
+    <body>
+        <div class="wrapper">
+            <nav>
+                <ul>
+                    {% for page in pages %}
+                    <li>
+                        <a href="{{ page.href }}">{{ page.title }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+            <main>
+                {% include 'content.html' %}
+            </main>
+            <footer>
+                <div class="left">2017</div>
+            </footer>
+        </div>
+    </body>
+</html>
+<!-- content.html -->
+<div class="content">
+    <h3>{{ heading|capitalize }}</h3>
+    <div>
+        {{ body_text|safe }}
+    </div>
+</div>

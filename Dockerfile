@@ -11,7 +11,9 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 # copy the content of the local src directory to the working directory
-COPY src/ .
+COPY / .
+
+EXPOSE 5000
 
 # command to run on container start
-CMD [ "python", "./server.py" ]
+CMD [ "python", "./main.py" ]
