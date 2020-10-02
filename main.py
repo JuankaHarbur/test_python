@@ -1,4 +1,4 @@
-from api.privatemodule.server import *
+from api.mod_example.example import *
 
 
 if __name__ == '__main__':

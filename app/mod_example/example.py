@@ -49,6 +49,9 @@ def make_public_task(task):
             new_task[field] = task[field]
     return new_task
     
+
+
+    
 @app.route('/api/v1.0/tasks', methods = ['GET']  )
 @auth.login_required
 def get_tasks():
