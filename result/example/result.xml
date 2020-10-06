@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+<httpSample t="51" it="0" lt="0" ct="50" ts="1601984511448" s="false" lb="HTTP Return a task" rc="Non HTTP response code: org.apache.http.conn.HttpHostConnectException" rm="Non HTTP response message: Connect to localhost:60130 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused (Connection refused)" tn="example 1-1" dt="text" by="2674" sby="0" ng="1" na="1">
+  <java.net.URL>http://localhost:60130/api/v1.0/tasks/2</java.net.URL>
+</httpSample>
+
+</testResults>

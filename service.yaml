@@ -1,0 +1,17 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: app-python
+  creationTimestamp: null
+  labels:
+    app: app-python
+spec:
+  ports:
+    - port: 5000
+      targetPort: 0
+      nodePort: 30001
+  selector:
+    app: app-python
+  type: LoadBalancer
+status:
+  loadBalancer: {}

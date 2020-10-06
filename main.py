@@ -1,4 +1,4 @@
-from api.mod_example.example import *
+from app.mod_example.example import *
 
 
 if __name__ == '__main__':
