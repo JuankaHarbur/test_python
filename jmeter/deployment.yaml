@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: jmeter
+  name: test-jmeter
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: jmeter
+      app: test-jmeter
   template:
     metadata:
       labels:
-        app: jmeter
+        app: test-jmeter
     spec:
         volumes:
             - name: volume-1

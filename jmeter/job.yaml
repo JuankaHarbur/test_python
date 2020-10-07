@@ -19,5 +19,5 @@ spec:
               resources: {}
               volumeMounts:
                 - name: volume-1
-                  mountPath: /storage
+                  mountPath: /result
         restartPolicy: Never
