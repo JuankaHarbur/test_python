@@ -1,5 +1,6 @@
 FROM nginx:alpine
 
+# JMETER(imagen nexus)
 ARG JMETER_VERSION="5.3"
 ENV JMETER_HOME /opt/apache-jmeter-${JMETER_VERSION}
 ENV	JMETER_BIN	${JMETER_HOME}/bin
@@ -20,15 +21,12 @@ RUN    apk update \
 
 ENV PATH $PATH:$JMETER_BIN
 
+# Content for Jmeter (configmap)
+
 COPY testing.jmx /
 COPY var.csv /
 COPY custom.properties /
-COPY info.sh /
 
-RUN chmod 777 info.sh
-RUN ./info.sh
-
-# ADD ["index.php","/var/www/html/"]
-# ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+# Ejecucion test ()
 
 RUN [ "jmeter","-p","custom.properties","-n","-t","testing.jmx" ]

@@ -1,0 +1,23 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: test-jmeter
+  creationTimestamp: null
+  labels:
+    app: test-jmeter
+spec:
+  volumes:
+    - name: volume-1
+      persistentVolumeClaim:
+        claimName: test-jmeter
+  containers:
+    - name: test-jmeter
+      image: 'juankanh/jmeter-docker:latest'
+      command: ["jmeter","-p","custom.properties","-n","-t","testing.jmx"]
+      command: [ "/bin/bash", "-c", "--" ]
+      args: [ "while true; do sleep 30; done;" ]
+      resources: {}
+      volumeMounts:
+        - name: volume-1
+          mountPath: /storage
+status: {}

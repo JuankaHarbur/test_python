@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jmeter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jmeter
+  template:
+    metadata:
+      labels:
+        app: jmeter
+    spec:
+        volumes:
+            - name: volume-1
+              persistentVolumeClaim:
+                claimName: test-jmeter
+        containers:
+            - name: test-jmeter
+              image: 'juankanh/jmeter-docker:latest'
+              resources: {}
+              volumeMounts:
+                - name: volume-1
+                  mountPath: /storage
