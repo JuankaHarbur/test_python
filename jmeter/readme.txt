@@ -7,3 +7,7 @@ docker push juankanh/jmeter-docker:latest
 --añadir un pvc OK
 --añadir configmap 
 
+
+Create ConfigMap from files :
+
+kubectl create configmap <CONFIGMAP_NAME>  --from-file=<FOLDER_WITH_THE_FILES>

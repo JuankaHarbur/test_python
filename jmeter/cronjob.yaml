@@ -23,4 +23,20 @@ spec:
                       volumeMounts:
                         - name: volume-1
                           mountPath: /result
+                      env:
+                        - name: custom.properties
+                          valueFrom:
+                            configMapKeyRef:
+                              name: properties
+                              key: custom.properties
+                        - name: testing.jmx
+                          valueFrom:
+                            configMapKeyRef:
+                              name: properties
+                              key: testing.jmx
+                        - name: var.csv
+                          valueFrom:
+                            configMapKeyRef:
+                               name: properties
+                               key: var.csv
                 restartPolicy: Never
