@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: jmeter-job
 spec:
-  schedule: "1 * * * *"
+  schedule: "* * * * *"
   jobTemplate:
     spec:
         template:
@@ -15,14 +15,19 @@ spec:
                     - name: volume-1
                       persistentVolumeClaim:
                         claimName: test-jmeter
+                    - name: volume-2
+                      configMap:
+                         name: properties   
                 containers:
                     - name: test-jmeter
                       image: 'juankanh/jmeter-docker:latest'
-                      command: [ "jmeter","-p","custom.properties","-n","-t","testing.jmx" ]
+                      command: [ "jmeter","-p","configmap/custom.properties","-n","-t","configmap/testing.jmx" ]
                       resources: {}
                       volumeMounts:
                         - name: volume-1
                           mountPath: /result
+                        - name: volume-2
+                          mountPath: /configmap
                       env:
                         - name: custom.properties
                           valueFrom:

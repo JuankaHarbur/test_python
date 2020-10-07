@@ -16,25 +16,30 @@ spec:
             - name: volume-1
               persistentVolumeClaim:
                 claimName: test-jmeter
+            - name: volume-2
+              configMap:
+                name: properties
         containers:
             - name: test-jmeter
               image: 'juankanh/jmeter-docker:latest'
               resources: {}
               volumeMounts:
                 - name: volume-1
-                  mountPath: /storage
+                  mountPath: /result
+                - name: volume-2
+                  mountPath: /configmap
               env:
-                - name: custom.properties
+                - name: PROPERTIES
                   valueFrom:
                     configMapKeyRef:
                       name: properties
                       key: custom.properties
-                - name: testing.jmx
+                - name: TESTS
                   valueFrom:
                     configMapKeyRef:
                       name: properties
                       key: testing.jmx
-                - name: var.csv
+                - name: VARS
                   valueFrom:
                     configMapKeyRef:
                         name: properties
