@@ -9,9 +9,8 @@ spec:
   ports:
     - port: 5000
       targetPort: 0
-      nodePort: 30001
   selector:
     app: app-python
-  type: LoadBalancer
+  type: ClusterIP
 status:
   loadBalancer: {}
